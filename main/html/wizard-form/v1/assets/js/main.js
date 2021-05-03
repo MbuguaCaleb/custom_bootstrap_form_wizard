@@ -259,8 +259,9 @@ $(function() {
             }
 
             //Validate Otp
-            $('#valiateOtp').click(()=>{
-                alert("Make call to the Otp EndPoint")
+            $('#validateOTP').click(()=>{
+
+                alert("call endpoint to valiate otp")
                 $('#Otp').modal('hide')
 
             })
