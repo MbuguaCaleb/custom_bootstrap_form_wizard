@@ -1,5 +1,8 @@
 $(function() {
 
+   //Call Welcome Modal
+   $('#welcomeModal').modal('show');
+
     // Select Dropdown
     $('html').on('click', function() {
         $('.select .dropdown').hide();
