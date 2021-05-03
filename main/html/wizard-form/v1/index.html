@@ -69,51 +69,43 @@
 							<div class="form-content pera-content">
 								<div class="step-inner-content">
 									<span class="step-no">Step 1</span>
-									<h2>What kind of Services You need?</h2>
-									<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+									<h2>Weclome to Sanlam Investments</h2>
+									<p class="lead">Before we begin we will need some information.
+									</p>
 									<div class="step-box">
-										<div class="row">
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position active">
-													<span class="step-box-icon">
-														<img src="assets/img/d1.png" alt="">
-													</span>
-													<span class="step-box-text">
-														Corporate Services
-													</span>
-													<span class="service-check-option">
-														<span><input type="radio" name="service_name" value="Corporate Services" checked></span>
-													</span>
-												</label>
+										
+										<div class="form-row">
+											<div class="form-group col-md-6">
+											  <label for="inputEmail4"><h4>First Name</h4></label>
+											  <input type="text" class="form-control" name="first_name" id="first_name">
 											</div>
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
-													<span class="step-box-icon">
-														<img src="assets/img/d2.png" alt="">
-													</span>
-													<span class="step-box-text">
-														Freelancing Serivces
-													</span>
-													<span>conditional</span>
-													<span class="service-check-option">
-														<span><input id="condition1" type="radio" name="service_name" value="Freelancing Services"></span>
-													</span>
-												</label>
+											<div class="form-group col-md-6">
+											  <label for="inputPassword4"><h4>Last Name</h4></label>
+											  <input type="text" class="form-control" name="last_name"id="last_name">
 											</div>
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
-													<span class="step-box-icon">
-														<img src="assets/img/d3.png" alt="">
-													</span>
-													<span class="step-box-text">
-														Development
-													</span>
-													<span class="service-check-option">
-														<span><input type="radio" name="service_name" value="Development Services"></span>
-													</span>
+										  </div>
+										  <div class="form-row">
+											<div class="form-group col-md-2">
+												<label for="inputState">  <small class="text-muted">Country Code</small>
 												</label>
-											</div>
-										</div>
+												<select id="inputState" class="form-control">
+												  <option selected>(254)</option>
+												  <option selected>(255)</option>
+												  <option selected>(256)</option>
+												</select>
+											  </div>
+
+											<div class="form-group col-md-4">
+												<label for="inputZip"><h4><small>Phone Number</small></h4></label>
+												<input type="text" class="form-control"  placeholder="7xxxxxxxxxx"id="inputZip">
+											  </div>
+
+										
+											<div class="form-group col-md-6">
+												<label for="inputCity"><h4>Email Address</h4></label>
+												<input type="email" class="form-control" id="inputCity">
+											  </div>
+										  </div>
 										<div class="row conditional" data-condition="#condition1 && service_name == 'Freelancing Services'">
 											<div class="col-md-12 form-inner-area">
 												<label for="field"><h3>Which Sector</h3></label>
