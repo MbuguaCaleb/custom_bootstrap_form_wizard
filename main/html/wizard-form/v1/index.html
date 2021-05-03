@@ -43,6 +43,7 @@
 			<div class="steps clearfix">
 				<ul class="tablist multisteps-form__progress">
 					<li class="multisteps-form__progress-btn js-active current">
+						
 						<span>1</span>
 					</li>
 					<li class="multisteps-form__progress-btn">
@@ -69,11 +70,12 @@
 							<div class="form-content pera-content">
 								<div class="step-inner-content">
 									<span class="step-no">Step 1</span>
-									<h2>Weclome to Sanlam Investments</h2>
+									<h2>Welcome to Sanlam Investments</h2>
 									<p class="lead">Before we begin we will need some information.
 									</p>
 									<div class="step-box">
-										
+										<div class="form-inner-area">
+
 										<div class="form-row">
 											<div class="form-group col-md-6">
 											  <label for="inputEmail4"><h4>First Name</h4></label>
@@ -106,6 +108,7 @@
 												<input type="email" class="form-control" id="inputCity">
 											  </div>
 										  </div>
+										</div>
 										<div class="row conditional" data-condition="#condition1 && service_name == 'Freelancing Services'">
 											<div class="col-md-12 form-inner-area">
 												<label for="field"><h3>Which Sector</h3></label>
@@ -384,6 +387,27 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Modals -->
+			<div class="modal" id="Otp" tabindex="-1">
+				<div class="modal-dialog">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title">Modal title</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					  <button  id="valiateOtp"  type="submit" class="btn btn-primary">Save changes</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
 		</form>
 	</div>
 	<script src="assets/js/jquery-3.3.1.min.js"></script>

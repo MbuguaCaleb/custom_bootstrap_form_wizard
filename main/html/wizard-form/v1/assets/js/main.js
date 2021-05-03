@@ -248,6 +248,23 @@ $(function() {
         }); 
 
          if(next_step === true || form.valid() === true) {
+
+            //Loading the Otp Modal
+            if (activePanelNum == 0){
+
+                //Call Endpoint to generate Otp
+                //Do checks to find whether the account is already active
+                //async await
+                $('#Otp').modal('show')
+            }
+
+            //Validate Otp
+            $('#valiateOtp').click(()=>{
+                alert("Make call to the Otp EndPoint")
+                $('#Otp').modal('hide')
+
+            })
+
             $("html, body").animate({
                 scrollTop: 0
             }, 600);
