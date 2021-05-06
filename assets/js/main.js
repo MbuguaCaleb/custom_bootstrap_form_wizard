@@ -6,6 +6,9 @@ $(function () {
   const country_code = document.getElementById('country_code');
   const otp_password = document.getElementById('otp_password');
 
+  //Step Two Validations
+  const id_passport_no = document.getElementById('id_passport_no');
+
   //Show Input Error Message
   function showError(input, message) {
     //assign the Error Class
@@ -283,53 +286,80 @@ $(function () {
         }
       }
 
-      //Validation before going to the next step
-      countryCodeValid = checkRequired(country_code);
-      firstNameValid = checkRequired(first_name);
-      lastNameValid = checkRequired(last_name);
-      phoneNoValid = checkRequired(phone_no);
-      emailAddressValid = checkEmail(email_address);
+      //ValidateFields
+      const validateFields = (fieldsArray) => {
+        if (fieldsArray.includes(false)) {
+          next_step = false;
+          return next_step;
+        } else {
+          next_step = true;
+          return next_step;
+        }
+      };
 
-      //Only Proceed to the next step when all the Validations Pass
-      if (
-        countryCodeValid &&
-        firstNameValid &&
-        lastNameValid &&
-        phoneNoValid &&
-        emailAddressValid
-      ) {
-        next_step = true;
-      } else {
-        next_step = false;
-      }
+      //Loading the Otp Modal
+      if (activePanelNum == 0) {
+        //Validation before going to the next step
+        countryCodeValid = checkRequired(country_code);
+        firstNameValid = checkRequired(first_name);
+        lastNameValid = checkRequired(last_name);
+        phoneNoValid = checkRequired(phone_no);
+        emailAddressValid = checkEmail(email_address);
 
-      if (next_step === true || form.valid() === true) {
-        //Loading the Otp Modal
-        if (activePanelNum == 0) {
+        const stepOneValidationsArray = [];
+
+        stepOneValidationsArray.push(
+          countryCodeValid,
+          firstNameValid,
+          lastNameValid,
+          phoneNoValid,
+          emailAddressValid
+        );
+
+        //Only Proceed to the next step when all the Validations Pass
+        const next_step = validateFields(stepOneValidationsArray);
+
+        if (next_step === true) {
           //Call Endpoint to generate Otp
           //Do checks to find whether the account is already active
           //async await
           $('#Otp').modal('show');
+          //Validate Otp
+          $('#validateOTP').click((e) => {
+            e.preventDefault();
+
+            alert('call endpoint to valiate otp');
+            $('#Otp').modal('hide');
+          });
+
+          activePanelNum++;
+          setActiveStep(activePanelNum);
+          setActivePanel(activePanelNum);
+        }
+      }
+
+      if (activePanelNum == 1) {
+        idPassPortNoValidation = checkRequired(id_passport_no);
+
+        if (idPassPortNoValidation) {
+          next_step = true;
+        } else {
+          next_step = false;
         }
 
-        //Validate Otp
-        $('#validateOTP').click((e) => {
-          e.preventDefault();
-
-          alert('call endpoint to valiate otp');
-          $('#Otp').modal('hide');
-        });
-
-        $('html, body').animate(
-          {
-            scrollTop: 0,
-          },
-          600
-        );
-        activePanelNum++;
-        setActiveStep(activePanelNum);
-        setActivePanel(activePanelNum);
+        if (next_step === true) {
+          activePanelNum++;
+          setActiveStep(activePanelNum);
+          setActivePanel(activePanelNum);
+        }
       }
+
+      $('html, body').animate(
+        {
+          scrollTop: 0,
+        },
+        600
+      );
     }
   });
 
