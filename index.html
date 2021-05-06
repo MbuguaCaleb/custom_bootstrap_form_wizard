@@ -209,30 +209,100 @@
                       </div>
                     </div>
 
-                    <h2>What kind of services you are quiz?</h2>
-                    <p>
-                      Tation argumentum et usu, dicit viderer evertitur te has.
-                      Eu dictas concludaturque usu, facete detracto patrioque an
-                      per, lucilius pertinacia eu vel.
-                    </p>
+                    <h2>Personal Details</h2>
 
-                    <div class="form-inner-area">
-                      <input
-                        type="text"
-                        name="full_name"
-                        class="form-control required"
-                        minlength="2"
-                        placeholder="First and last name *"
-                        required
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        class="form-control required"
-                        placeholder="Email Address *"
-                        required
-                      />
-                      <input type="text" name="phone" placeholder="Phone" />
+                    <div class="">
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="inputCity">ID/PassPort Number</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputCity"
+                          />
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="inputState">Saluatation</label>
+                          <select id="inputState" class="form-control">
+                            <option selected>Mr</option>
+                            <option selected>Mrs</option>
+                            <option selected>Sir</option>
+                            <option selected>Madam</option>
+                            <option selected>Other</option>
+                          </select>
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputZip"
+                            >How did you hear about us</label
+                          >
+                          <select id="inputState" class="form-control">
+                            <option selected>Website</option>
+                            <option selected>NewsPaper</option>
+                            <option selected>Referral</option>
+                            <option selected>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-3">
+                          <label for="First Name">First Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="first_name"
+                            name="first_name"
+                          />
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for=" Middle Name"> Middle Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="middle_name"
+                            name="middle_name"
+                          />
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="inputZip"
+                            >How did you hear about us</label
+                          >
+                          <select id="inputState" class="form-control">
+                            <option selected>Website</option>
+                            <option selected>NewsPaper</option>
+                            <option selected>Referral</option>
+                            <option selected>Other</option>
+                          </select>
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label for="inputZip"
+                            >How did you hear about us</label
+                          >
+                          <select id="inputState" class="form-control">
+                            <option selected>Website</option>
+                            <option selected>NewsPaper</option>
+                            <option selected>Referral</option>
+                            <option selected>Other</option>
+                          </select>
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+                      </div>
                     </div>
                     <div class="gender-selection">
                       <h3>Gender:</h3>
@@ -712,11 +782,7 @@
                       >This Field is Required.
                     </small>
                   </div>
-                  <button
-                    id="validateOTP"
-                    type="submit"
-                    class="btn btn-primary"
-                  >
+                  <button id="validateOTP" class="btn btn-primary">
                     Validate
                   </button>
                 </form>

@@ -313,7 +313,8 @@ $(function () {
         }
 
         //Validate Otp
-        $('#validateOTP').click(() => {
+        $('#validateOTP').click((e) => {
+          e.preventDefault();
 
           alert('call endpoint to valiate otp');
           $('#Otp').modal('hide');
