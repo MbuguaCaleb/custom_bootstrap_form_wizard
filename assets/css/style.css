@@ -7,7 +7,7 @@
 /*=========
 Font load
 ===========*/
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&display=swap');
 /*=========
 Color Code
 ===========*/
@@ -22,7 +22,7 @@ body {
   line-height: 1.5;
   background: #f9f9f9;
   color: #2f3146;
-  font-family: "Jost", sans-serif;
+  font-family: 'Jost', sans-serif;
   -moz-osx-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
 }
@@ -117,8 +117,10 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Jost", sans-serif;
+  font-family: 'Jost', sans-serif;
 }
+
+
 
 .pb-100 {
   padding-bottom: 100px;
@@ -211,7 +213,7 @@ h6 {
   position: relative;
 }
 .steps-area .steps li:before {
-  content: "";
+  content: '';
   top: -8px;
   left: -8px;
   width: 55px;
@@ -236,7 +238,7 @@ h6 {
   z-index: -1;
 }
 .steps-area .steps li span:before {
-  content: "";
+  content: '';
   width: 2px;
   height: 95px;
   background: #b8b9b9;
@@ -245,7 +247,7 @@ h6 {
   top: 40px;
 }
 .steps-area .steps li span:after {
-  content: "";
+  content: '';
   width: 2px;
   height: 0;
   background: #6b59d3;
@@ -267,7 +269,7 @@ h6 {
   height: 86px;
 }
 .steps-area .steps li.js-active:before {
-  content: "";
+  content: '';
   top: -8px;
   left: -8px;
   width: 55px;
@@ -368,7 +370,7 @@ select.form-control {
   cursor: pointer;
   color: #999;
 }
-select.form-control option[value=""][disabled] {
+select.form-control option[value=''][disabled] {
   display: none;
 }
 
@@ -404,7 +406,7 @@ select.form-control option[value=""][disabled] {
   background: #ccc;
   color: #111;
 }
-.actions li[aria-disabled="true"] span {
+.actions li[aria-disabled='true'] span {
   opacity: 0;
   -webkit-transition: all 1s;
   -o-transition: all 1s;
@@ -449,7 +451,7 @@ select.form-control option[value=""][disabled] {
   left: 2px;
   position: absolute;
   display: none;
-  content: "";
+  content: '';
 }
 
 .checkbox-circle {
@@ -494,7 +496,7 @@ select.form-control option[value=""][disabled] {
   border: 1px solid #999;
 }
 .checkbox-circle .checkmark:after {
-  content: "";
+  content: '';
   top: 2px;
   left: 2px;
   width: 7px;
@@ -616,12 +618,12 @@ select.form-control option[value=""][disabled] {
   overflow: visible;
   height: auto;
 }
-.multisteps-form__panel[data-animation="scaleOut"] {
+.multisteps-form__panel[data-animation='scaleOut'] {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
-.multisteps-form__panel[data-animation="scaleOut"].js-active {
+.multisteps-form__panel[data-animation='scaleOut'].js-active {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -638,10 +640,10 @@ select.form-control option[value=""][disabled] {
   -ms-transform: scale(1);
   transform: scale(1);
 }
-.multisteps-form__panel[data-animation="slideHorz"] {
+.multisteps-form__panel[data-animation='slideHorz'] {
   left: -50px;
 }
-.multisteps-form__panel[data-animation="slideHorz"].js-active {
+.multisteps-form__panel[data-animation='slideHorz'].js-active {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -656,10 +658,10 @@ select.form-control option[value=""][disabled] {
   transition-delay: 0s;
   left: 0;
 }
-.multisteps-form__panel[data-animation="slideVert"] {
+.multisteps-form__panel[data-animation='slideVert'] {
   top: 30px;
 }
-.multisteps-form__panel[data-animation="slideVert"].js-active {
+.multisteps-form__panel[data-animation='slideVert'].js-active {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -674,7 +676,7 @@ select.form-control option[value=""][disabled] {
   transition-delay: 0s;
   top: 0;
 }
-.multisteps-form__panel[data-animation="fadeIn"].js-active {
+.multisteps-form__panel[data-animation='fadeIn'].js-active {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -688,12 +690,12 @@ select.form-control option[value=""][disabled] {
   -o-transition-delay: 0s;
   transition-delay: 0s;
 }
-.multisteps-form__panel[data-animation="scaleIn"] {
+.multisteps-form__panel[data-animation='scaleIn'] {
   -webkit-transform: scale(0.9);
   -ms-transform: scale(0.9);
   transform: scale(0.9);
 }
-.multisteps-form__panel[data-animation="scaleIn"].js-active {
+.multisteps-form__panel[data-animation='scaleIn'].js-active {
   -webkit-transition-property: all;
   -o-transition-property: all;
   transition-property: all;
@@ -772,7 +774,7 @@ select.form-control option[value=""][disabled] {
 .service-check-option span:after {
   left: 3px;
   top: 3px;
-  content: "";
+  content: '';
   width: 17px;
   height: 17px;
   display: none;
@@ -922,7 +924,7 @@ select.form-control option[value=""][disabled] {
   padding: 18px 0;
 }
 .services-select-option li:after {
-  content: "";
+  content: '';
   width: 23px;
   height: 23px;
   position: absolute;
@@ -932,7 +934,7 @@ select.form-control option[value=""][disabled] {
   border: 2px solid #ededed;
 }
 .services-select-option li:before {
-  content: "";
+  content: '';
   top: 26px;
   left: 41px;
   font-size: 12px;
@@ -940,7 +942,7 @@ select.form-control option[value=""][disabled] {
   font-weight: 900;
   display: none;
   color: #6b59d3;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
   position: absolute;
 }
 .services-select-option li.active {
@@ -1030,7 +1032,7 @@ select.form-control option[value=""][disabled] {
   height: 28px;
 }
 .budget-area .opti-list li:after {
-  content: "";
+  content: '';
   position: absolute;
   height: 28px;
   left: 15px;
@@ -1039,7 +1041,7 @@ select.form-control option[value=""][disabled] {
   border: 2px solid #ededed;
 }
 .budget-area .opti-list li:before {
-  content: "";
+  content: '';
   top: 28px;
   left: 24px;
   font-size: 12px;
@@ -1048,7 +1050,7 @@ select.form-control option[value=""][disabled] {
   display: none;
   color: #fff;
   z-index: 1;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
   position: absolute;
 }
 .budget-area .opti-list li.active {
@@ -1084,15 +1086,15 @@ select.form-control option[value=""][disabled] {
 .step-content-field .date-picker:before {
   top: 15px;
   left: 25px;
-  content: "";
+  content: '';
   font-size: 20px;
   color: #959595;
   font-weight: 900;
   position: absolute;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
 }
 .step-content-field .date-picker:after {
-  content: "";
+  content: '';
   top: 24px;
   left: 80px;
   height: 20px;
@@ -1127,9 +1129,9 @@ select.form-control option[value=""][disabled] {
   color: #6b59d3;
   font-size: 30px;
   font-weight: 900;
-  content: "";
+  content: '';
   position: absolute;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
 }
 .plan-icon-text.active:before {
   display: block;
