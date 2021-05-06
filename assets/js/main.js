@@ -4,6 +4,7 @@ $(function () {
   const phone_no = document.getElementById('phone_no');
   const email_address = document.getElementById('email_address');
   const country_code = document.getElementById('country_code');
+  const otp_password = document.getElementById('otp_password');
 
   //Show Input Error Message
   function showError(input, message) {
@@ -313,6 +314,7 @@ $(function () {
 
         //Validate Otp
         $('#validateOTP').click(() => {
+
           alert('call endpoint to valiate otp');
           $('#Otp').modal('hide');
         });
