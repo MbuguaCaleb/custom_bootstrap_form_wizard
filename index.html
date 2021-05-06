@@ -374,23 +374,39 @@
                         </div>
                       </div>
                       <div class="form-row">
-                        <div class="form-group col-md-3">
-                          <label for="First Name">Phone Number</label>
-                          <div class="col-md-1"></div>
+                        <div class="col-md-1">
+                          <label for="Country Code">
+                            <small class="text-muted">Code</small></label
+                          >
 
-                          <div class="col md-2"></div>
+                          <select id="country_code" class="form-control">
+                            <option selected>(254)</option>
+                            <option selected>(255)</option>
+                            <option selected>(256)</option>
+                          </select>
+                          <small class="invalid-feedback"
+                            >This Field is Required.
+                          </small>
+                        </div>
+
+                        <div class="col md-2">
+                          <label for="First Name">Phone Number</label>
+
                           <input
                             type="text"
                             class="form-control"
-                            id="first_name"
-                            name="first_name"
+                            id="phone_no"
+                            name="phone_no"
                           />
                           <small class="invalid-feedback"
                             >This Field is Required.
                           </small>
                         </div>
+
                         <div class="form-group col-md-3">
-                          <label for=" Middle Name"> Middle Name</label>
+                          <label for=" Middle Name">
+                            TAX NO<small>(KRA PIN)</small></label
+                          >
                           <input
                             type="text"
                             class="form-control"
@@ -402,25 +418,35 @@
                           </small>
                         </div>
                         <div class="form-group col-md-3">
-                          <label for="inputZip">Country_of_residence</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Website</option>
-                            <option selected>NewsPaper</option>
-                            <option selected>Referral</option>
-                            <option selected>Other</option>
-                          </select>
-                          <small class="invalid-feedback"
-                            >This Field is Required.
-                          </small>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="inputZip">Nationality</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Website</option>
-                            <option selected>NewsPaper</option>
-                            <option selected>Referral</option>
-                            <option selected>Other</option>
-                          </select>
+                          <label for="inputZip"
+                            >Set a Monthy Contribution</label
+                          >
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="inlineCheckbox1"
+                              value="option1"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="inlineCheckbox1"
+                              >Yes</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="inlineCheckbox2"
+                              value="option2"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="inlineCheckbox2"
+                              >No</label
+                            >
+                          </div>
                           <small class="invalid-feedback"
                             >This Field is Required.
                           </small>
