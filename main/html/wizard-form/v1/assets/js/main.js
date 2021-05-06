@@ -254,18 +254,16 @@ $(function () {
       var next_step = true;
 
       //Check required Fields
-      function checkRequired(inputArr) {
-        inputArr.forEach(function (input) {
-          if (input.value.trim() === '') {
-            next_step = false;
-            showError(input, `${getFieldName(input)} is required`);
-            return next_step;
-          } else {
-            next_step = true;
-            showSuccess(input);
-            return next_step;
-          }
-        });
+      function checkRequired(input) {
+        if (input.value.trim() === '') {
+          next_step = false;
+          showError(input, `${getFieldName(input)} is required`);
+          return next_step;
+        } else {
+          next_step = true;
+          showSuccess(input);
+          return next_step;
+        }
       }
 
       //check email is valid
@@ -285,23 +283,20 @@ $(function () {
       }
 
       //Validation before going to the next step
-      checkRequired([
-        country_code,
-        first_name,
-        last_name,
-        email_address,
-        phone_no,
-      ])
-        ? (required_next_step = true)
-        : (next_step = false);
-
-      //Email Validation
-      checkEmail(email_address)
-        ? (email_next_step = true)
-        : (next_step = false);
+      countryCodeValid = checkRequired(country_code);
+      firstNameValid = checkRequired(first_name);
+      lastNameValid = checkRequired(last_name);
+      phoneNoValid = checkRequired(phone_no);
+      emailAddressValid = checkEmail(email_address);
 
       //Only Proceed to the next step when all the Validations Pass
-      if (email_next_step && required_next_step == true) {
+      if (
+        countryCodeValid &&
+        firstNameValid &&
+        lastNameValid &&
+        phoneNoValid &&
+        emailAddressValid
+      ) {
         next_step = true;
       } else {
         next_step = false;
