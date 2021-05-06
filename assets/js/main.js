@@ -328,17 +328,21 @@ $(function () {
           $('#validateOTP').click((e) => {
             e.preventDefault();
 
-            alert('call endpoint to valiate otp');
-            $('#Otp').modal('hide');
+            otpCheckRequired = checkRequired(otp_password);
+
+            if (otpCheckRequired === false) {
+              $('#Otp').modal('show');
+            } else {
+              alert('call endpoint to valiate otp');
+              $('#Otp').modal('hide');
+            }
           });
 
           activePanelNum++;
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
-      }
-
-      if (activePanelNum == 1) {
+      } else if (activePanelNum == 1) {
         idPassPortNoValidation = checkRequired(id_passport_no);
 
         if (idPassPortNoValidation) {
@@ -352,6 +356,7 @@ $(function () {
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
+      } else {
       }
 
       $('html, body').animate(
