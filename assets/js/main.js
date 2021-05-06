@@ -345,18 +345,17 @@ $(function () {
       } else if (activePanelNum == 1) {
         idPassPortNoValidation = checkRequired(id_passport_no);
 
-        if (idPassPortNoValidation) {
-          next_step = true;
-        } else {
-          next_step = false;
-        }
-
+        const stepTwoValidationsArray = [];
+        stepTwoValidationsArray.push(idPassPortNoValidation);
+        const next_step = validateFields(stepTwoValidationsArray);
+        
         if (next_step === true) {
           activePanelNum++;
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
       } else {
+        
       }
 
       $('html, body').animate(
