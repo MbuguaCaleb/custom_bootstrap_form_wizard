@@ -24,6 +24,12 @@ $(function () {
   const tax_no = document.getElementById('tax_no');
   const phone_no_field = document.getElementById('phone_no_field');
   const initial_deposit = document.getElementById('initial_deposit');
+  const monthly_contribution_true = document.getElementById(
+    'monthly_contribution_true'
+  );
+  const monthly_contribution_false = document.getElementById(
+    'monthly_contribution_false'
+  );
 
   //Resusable Validations Functions
 
@@ -53,13 +59,15 @@ $(function () {
       //Adding error class to the description
       const addErrorClass = OptionOrCheckBox.querySelector('#customHighlight');
       addErrorClass.className = 'invalid-feedback';
+    } else if (
+      input.id == 'tax_exempt_true' ||
+      input.id == 'tax_exempt_false'
+    ) {
+      input.className = 'form-check-input is-invalid';
+      $('#invalidFeedbackRadioTaxExempt').removeClass('invisible');
     } else {
-      if (input.type == 'radio') {
-        console.log('here');
-        console.log(message);
-        input.className = 'form-check-input is-invalid';
-        $('#invalidFeedbackRadio').removeClass('invisible');
-      }
+      input.className = 'form-check-input is-invalid';
+      $('#invalidFeedbackRadioMonthlyContribution').removeClass('invisible');
     }
   }
 
@@ -73,9 +81,15 @@ $(function () {
         '#customHighlight'
       );
       addSuccessClass.className = 'valid-feedback';
+    } else if (
+      input.id == 'tax_exempt_true' ||
+      input.id == 'tax_exempt_false'
+    ) {
+      input.className = 'form-check-input is-valid';
+      $('#invalidFeedbackRadioTaxExempt').addClass('invisible');
     } else {
       input.className = 'form-check-input is-valid';
-      $('#invalidFeedbackRadio').addClass('invisible');
+      $('#invalidFeedbackRadioMonthlyContribution').addClass('invisible');
     }
   }
 
@@ -484,12 +498,17 @@ $(function () {
           tax_exempt_true,
           tax_exempt_false
         );
+        const monthly_contribution = validateOptionRadioButtonFields(
+          monthly_contribution_true,
+          monthly_contribution_false
+        );
 
         //CheckBoxValidation
         agreeToTermsValidation = validateCheckBoxFields(agree_to_terms);
 
         console.log(tax_exempt_valid);
         console.log(agreeToTermsValidation);
+        console.log(monthly_contribution);
 
         if (next_step === true) {
           activePanelNum++;
