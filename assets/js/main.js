@@ -20,6 +20,10 @@ $(function () {
   const tax_exempt_true = document.getElementById('tax_exempt_true');
   const tax_exempt_false = document.getElementById('tax_exempt_false');
   const agree_to_terms = document.getElementById('agree_to_terms');
+  const country_code_field = document.getElementById('country_code_field');
+  const tax_no = document.getElementById('tax_no');
+  const phone_no_field = document.getElementById('phone_no_field');
+  const initial_deposit = document.getElementById('initial_deposit');
 
   //Resusable Validations Functions
 
@@ -448,6 +452,10 @@ $(function () {
         surnameValidation = checkRequired(surname);
         emailAddressStepTwoValidation = checkRequired(email_address_field);
         roadHouseNoValidation = checkRequired(road_house_no);
+        countryCodeStepTwoValidation = checkRequired(country_code_field);
+        taxNoValidation = checkRequired(tax_no);
+        phoneNOStepTwoValidation = checkRequired(phone_no_field);
+        initialDepositValidation = checkRequired(initial_deposit);
 
         const stepTwoValidationsArray = [];
 
@@ -462,7 +470,11 @@ $(function () {
           nationalityValidation,
           surnameValidation,
           emailAddressStepTwoValidation,
-          roadHouseNoValidation
+          roadHouseNoValidation,
+          countryCodeStepTwoValidation,
+          taxNoValidation,
+          phoneNOStepTwoValidation,
+          initialDepositValidation
         );
 
         const next_step = validateFields(stepTwoValidationsArray);
