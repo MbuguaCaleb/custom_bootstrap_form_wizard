@@ -337,18 +337,23 @@
                       </div>
                       <div class="form-group col-md-3">
                         <label for="tax_exempt">Do you qualify for any tax Exemptions</label>
-                        <div class="form-check form-check-inline is-invalid">
-                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt" value="Yes"
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt_true" value="Yes"
                           aria-describedby="invalidCheckTaxExempt"  >
                         
                           <label class="form-check-label" for="tax_exempt">Yes</label>
-                     
-                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt" value="No">
+                        </div>
+
+                          <div class="form-check form-check-inline">
+
+                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt_false" value="No">
                           <label class="form-check-label" for="inlineRadio2">No</label>
 
-                          <div id="invalidFeedback" class="invalid-feedback">This is a required field </div>
+                          </div>
+                          <div id="invalidFeedbackRadio" class="text-danger invisible">This is a required field </div>
 
                         </div>   
+
                       </div>
                     </div>
                     <div class="form-row">
@@ -661,7 +666,7 @@
                             name="agree_to_terms"
                           />
                           <label class="form-check-label" for="inlineCheckbox1"></label>
-                            <small class="highlightedDescription">
+                            <small id="customHighlight">
                               I hereby agree and consent to the Terms and
                               Conditions,information Memorandum and the Online
                               Private Policy</small

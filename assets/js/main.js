@@ -17,7 +17,8 @@ $(function () {
   const surname = document.getElementById('surname');
   const email_address_field = document.getElementById('email_address_field');
   const road_house_no = document.getElementById('road_house_no');
-  const tax_exempt = document.getElementById('tax_exempt');
+  const tax_exempt_true = document.getElementById('tax_exempt_true');
+  const tax_exempt_false = document.getElementById('tax_exempt_false');
   const agree_to_terms = document.getElementById('agree_to_terms');
 
   //Resusable Validations Functions
@@ -41,36 +42,36 @@ $(function () {
       input.className = 'form-check-input is-invalid';
       const OptionOrCheckBox = input.parentElement;
 
+      //i am using a div instead of small
       const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
       errorMessage.innerText = message;
 
       //Adding error class to the description
-      const addErrorClass = OptionOrCheckBox.querySelector(
-        '.highlightedDescription'
-      );
-      addErrorClass.className = 'highlightedDescription invalid-feedback';
+      const addErrorClass = OptionOrCheckBox.querySelector('#customHighlight');
+      addErrorClass.className = 'invalid-feedback';
     } else {
-      input.className = 'form-check-input is-invalid';
-      const OptionOrCheckBox = input.parentElement;
-      const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
-      errorMessage.innerText = message;
+      if (input.type == 'radio') {
+        console.log('here');
+        console.log(message);
+        input.className = 'form-check-input is-invalid';
+        $('#invalidFeedbackRadio').removeClass('invisible');
+      }
     }
   }
 
   function showSuccessCheckBoxAndInputs(input) {
-    console.log('true');
     if (input.id == 'agree_to_terms') {
       input.className = 'form-check-input is-valid';
       //Adding error class to the description
       const OptionOrCheckBox = input.parentElement;
 
       const addSuccessClass = OptionOrCheckBox.querySelector(
-        '.highlightedDescription'
+        '#customHighlight'
       );
-
       addSuccessClass.className = 'valid-feedback';
     } else {
       input.className = 'form-check-input is-valid';
+      $('#invalidFeedbackRadio').addClass('invisible');
     }
   }
 
@@ -318,23 +319,6 @@ $(function () {
         }
       }
 
-      //Check boxes required
-      //I am checking against the checked Property
-      function checkRequiredRadioCheckBox(input) {
-        if (input.checked == false) {
-          next_step = false;
-          showErrorCheckBoxAndInputs(
-            input,
-            `${getFieldName(input)} is required`
-          );
-          return next_step;
-        } else {
-          next_step = true;
-          showSuccessCheckBoxAndInputs(input);
-          return next_step;
-        }
-      }
-
       //check email is valid
       function checkEmail(input) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -358,6 +342,52 @@ $(function () {
           return next_step;
         } else {
           next_step = true;
+          return next_step;
+        }
+      };
+
+      const validateRadioButtons = (radioButtonsArray) => {
+        if (radioButtonsArray.includes(false)) {
+          next_step = false;
+          return next_step;
+        } else {
+          next_step = true;
+          return next_step;
+        }
+      };
+
+      //Ensure that at least one of the Options Is True
+      const validateOptionRadioButtonFields = (input1, input2) => {
+        if (input1.checked == false && input2.checked == false) {
+          next_step = false;
+          showErrorCheckBoxAndInputs(
+            input1,
+            `${getFieldName(input1)} is required`
+          );
+          showErrorCheckBoxAndInputs(
+            input2,
+            `${getFieldName(input2)} is required`
+          );
+          return next_step;
+        } else {
+          next_step = true;
+          showSuccessCheckBoxAndInputs(input1);
+          showSuccessCheckBoxAndInputs(input2);
+          return next_step;
+        }
+      };
+
+      const validateCheckBoxFields = (input) => {
+        if (input.checked == false) {
+          next_step = false;
+          showErrorCheckBoxAndInputs(
+            input,
+            `${getFieldName(input)} is required`
+          );
+          return next_step;
+        } else {
+          next_step = true;
+          showSuccessCheckBoxAndInputs(input);
           return next_step;
         }
       };
@@ -418,15 +448,10 @@ $(function () {
         surnameValidation = checkRequired(surname);
         emailAddressStepTwoValidation = checkRequired(email_address_field);
         roadHouseNoValidation = checkRequired(road_house_no);
-        taxExemptValidation = checkRequiredRadioCheckBox(tax_exempt);
-        agreeToTermsValidation = checkRequiredRadioCheckBox(agree_to_terms);
-
-        console.log('Tax Exempt Value');
-        console.log(tax_exempt.value);
-        console.log(tax_exempt.checked);
-        console.log(agree_to_terms.checked);
 
         const stepTwoValidationsArray = [];
+
+        //Validate Inputs
         stepTwoValidationsArray.push(
           idPassPortNoValidation,
           saluatationValidation,
@@ -437,12 +462,22 @@ $(function () {
           nationalityValidation,
           surnameValidation,
           emailAddressStepTwoValidation,
-          roadHouseNoValidation,
-          taxExemptValidation,
-          agreeToTermsValidation
+          roadHouseNoValidation
         );
 
         const next_step = validateFields(stepTwoValidationsArray);
+
+        //Radio Buttons Validations
+        const tax_exempt_valid = validateOptionRadioButtonFields(
+          tax_exempt_true,
+          tax_exempt_false
+        );
+
+        //CheckBoxValidation
+        agreeToTermsValidation = validateCheckBoxFields(agree_to_terms);
+
+        console.log(tax_exempt_valid);
+        console.log(agreeToTermsValidation);
 
         if (next_step === true) {
           activePanelNum++;
