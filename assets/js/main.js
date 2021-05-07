@@ -35,11 +35,8 @@ $(function () {
 
   function showErrorCheckBoxAndInputs(input, message) {
     input.className = 'form-check-input is-invalid';
-    const formGroup = input.parentElement;
-    console.log('Parent Class');
-    console.log(formGroup);
-
-    const errorMessage = formGroup.querySelector('#invalidFeedback');
+    const OptionOrCheckBox = input.parentElement;
+    const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
     errorMessage.innerText = message;
   }
 
@@ -384,6 +381,8 @@ $(function () {
         roadHouseNoValidation = checkRequired(road_house_no);
         taxExemptValidation = checkRequired(tax_exempt);
         agreeToTermsValidation = checkRequired(agree_to_terms);
+
+        console.log('Tax Exempt Value');
         console.log(tax_exempt.value);
 
         const stepTwoValidationsArray = [];
