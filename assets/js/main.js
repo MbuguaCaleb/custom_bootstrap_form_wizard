@@ -8,16 +8,38 @@ $(function () {
 
   //Step Two Validations
   const id_passport_no = document.getElementById('id_passport_no');
+  const saluatation = document.getElementById('saluatation');
+  const about_us = document.getElementById('where_did_you_hear_about_us');
+  const first_name_step_two = document.getElementById('first_name_field');
+  const middle_name = document.getElementById('middle_name');
+  const country_of_residence = document.getElementById('country_of_residence');
+  const nationality = document.getElementById('nationality');
+  const surname = document.getElementById('surname');
+  const email_address_field = document.getElementById('email_address_field');
+  const road_house_no = document.getElementById('road_house_no');
+  const tax_exempt = document.getElementById('tax_exempt');
+  const agree_to_terms = document.getElementById('agree_to_terms');
 
   //Show Input Error Message
   function showError(input, message) {
     //assign the Error Class
     //Remember the concept of Parent and Siblings
     input.className = 'custom-select is-invalid';
+
     const formGroup = input.parentElement;
 
+    console.log(formGroup);
     const errorMessage = formGroup.querySelector('small');
-    console.log(errorMessage);
+    errorMessage.innerText = message;
+  }
+
+  function showErrorCheckBoxAndInputs(input, message) {
+    input.className = 'form-check-input is-invalid';
+    const formGroup = input.parentElement;
+    console.log('Parent Class');
+    console.log(formGroup);
+
+    const errorMessage = formGroup.querySelector('#invalidFeedback');
     errorMessage.innerText = message;
   }
 
@@ -263,6 +285,13 @@ $(function () {
           next_step = false;
           showError(input, `${getFieldName(input)} is required`);
           return next_step;
+        } else if (input.value == 'on') {
+          next_step = false;
+          showErrorCheckBoxAndInputs(
+            input,
+            `${getFieldName(input)} is required`
+          );
+          return next_step;
         } else {
           next_step = true;
           showSuccess(input);
@@ -344,18 +373,43 @@ $(function () {
         }
       } else if (activePanelNum == 1) {
         idPassPortNoValidation = checkRequired(id_passport_no);
+        saluatationValidation = checkRequired(saluatation);
+        hearAboutUsValidation = checkRequired(about_us);
+        firstNameStepTwoValidation = checkRequired(first_name_step_two);
+        middleNameValidation = checkRequired(middle_name);
+        countryOfResidenceValidation = checkRequired(country_of_residence);
+        nationalityValidation = checkRequired(nationality);
+        surnameValidation = checkRequired(surname);
+        emailAddressStepTwoValidation = checkRequired(email_address_field);
+        roadHouseNoValidation = checkRequired(road_house_no);
+        taxExemptValidation = checkRequired(tax_exempt);
+        agreeToTermsValidation = checkRequired(agree_to_terms);
+        console.log(tax_exempt.value);
 
         const stepTwoValidationsArray = [];
-        stepTwoValidationsArray.push(idPassPortNoValidation);
+        stepTwoValidationsArray.push(
+          idPassPortNoValidation,
+          saluatationValidation,
+          hearAboutUsValidation,
+          firstNameStepTwoValidation,
+          middleNameValidation,
+          countryOfResidenceValidation,
+          nationalityValidation,
+          surnameValidation,
+          emailAddressStepTwoValidation,
+          roadHouseNoValidation,
+          taxExemptValidation,
+          agreeToTermsValidation
+        );
+
         const next_step = validateFields(stepTwoValidationsArray);
-        
+
         if (next_step === true) {
           activePanelNum++;
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
       } else {
-        
       }
 
       $('html, body').animate(

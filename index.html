@@ -80,6 +80,7 @@
         action="index.html#"
         id="wizard"
         method="POST"
+        novalidate
       >
         <div class="form-area position-relative">
           <!-- div 1 -->
@@ -225,8 +226,8 @@
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputState">Saluatation</label>
-                        <select id="inputState" class="form-control">
+                        <label for="Saluatation">Saluatation</label>
+                        <select id="saluatation" name="saluatation" class="form-control">
                           <option selected>Mr</option>
                           <option selected>Mrs</option>
                           <option selected>Sir</option>
@@ -238,11 +239,11 @@
                         </small>
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="inputZip">How did you hear about us</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Website</option>
-                          <option selected>NewsPaper</option>
-                          <option selected>Referral</option>
+                        <label for="where_did_you_hear_about_us">How did you hear about us</label>
+                        <select id="where_did_you_hear_about_us" name="where_did_you_hear_about_us" class="form-control">
+                          <option>Website</option>
+                          <option>NewsPaper</option>
+                          <option >Referral</option>
                           <option selected>Other</option>
                         </select>
                       </div>
@@ -253,8 +254,8 @@
                         <input
                           type="text"
                           class="form-control"
-                          id="first_name"
-                          name="first_name"
+                          id="first_name_field"
+                          name="first_name_field"
                         />
                         <small class="invalid-feedback"
                           >This Field is Required.
@@ -273,24 +274,24 @@
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputZip">Country_of_residence</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Website</option>
-                          <option selected>NewsPaper</option>
-                          <option selected>Referral</option>
-                          <option selected>Other</option>
+                        <label for="country_of_residence">Country_of_residence</label>
+                        <select id="country_of_residence" name="country_of_residence" class="form-control">
+                          <option >Kenya</option>
+                          <option >Uganda</option>
+                          <option >Tanzania</option>
+                          <option selected>Select Option</option>
                         </select>
                         <small class="invalid-feedback"
                           >This Field is Required.
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputZip">Nationality</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Website</option>
-                          <option selected>NewsPaper</option>
-                          <option selected>Referral</option>
-                          <option selected>Other</option>
+                        <label for="Nationality">Nationality</label>
+                        <select id="nationality" name="nationality" class="form-control">
+                          <option >Kenya</option>
+                          <option >Uganda</option>
+                          <option >Tanzania</option>
+                          <option selected>Select Option</option>
                         </select>
                         <small class="invalid-feedback"
                           >This Field is Required.
@@ -315,8 +316,8 @@
                         <input
                           type="text"
                           class="form-control"
-                          id="email_address"
-                          name="email_address"
+                          id="email_address_field"
+                          name="email_address_field"
                         />
                         <small class="invalid-feedback"
                           >This Field is Required.
@@ -335,34 +336,19 @@
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputZip"
-                          >Do you qualify for any tax Exemptions</label
-                        >
-                        <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="inlineCheckbox1"
-                            value="option1"
-                          />
-                          <label class="form-check-label" for="inlineCheckbox1"
-                            >Yes</label
-                          >
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="inlineCheckbox2"
-                            value="option2"
-                          />
-                          <label class="form-check-label" for="inlineCheckbox2"
-                            >No</label
-                          >
-                        </div>
-                        <small class="invalid-feedback"
-                          >This Field is Required.
-                        </small>
+                        <label for="tax_exempt">Do you qualify for any tax Exemptions</label>
+                        <div class="form-check form-check-inline is-invalid">
+                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt"
+                          aria-describedby="invalidCheckTaxExempt"  >
+                        
+                          <label class="form-check-label" for="tax_exempt">Yes</label>
+                     
+                          <input class="form-check-input" type="radio" name="tax_exempt" id="tax_exempt">
+                          <label class="form-check-label" for="inlineRadio2">No</label>
+
+                          <small class="invalid-feedback">This is a required field </small>
+
+                        </div>   
                       </div>
                     </div>
                     <div class="form-row">
@@ -372,8 +358,8 @@
                         >
 
                         <select id="country_code" class="form-control">
-                          <option selected>(254)</option>
-                          <option selected>(255)</option>
+                          <option >(254)</option>
+                          <option >(255)</option>
                           <option selected>(256)</option>
                         </select>
                         <small class="invalid-feedback"
@@ -671,8 +657,8 @@
                           <input
                             class="form-check-input"
                             type="checkbox"
-                            id="inlineCheckbox1"
-                            value="option1"
+                            id="agree_to_terms"
+                            name="agree_to_terms"
                           />
                           <label class="form-check-label" for="inlineCheckbox1"></label>
                             <small>
@@ -681,11 +667,12 @@
                               Private Policy</small
                             >
                           </label>
+                          <div  id="invalidFeedback" class="invalid-feedback">
+                            You must agree before submitting.
+                          </div>
                         </div>
 
-                        <small class="invalid-feedback"
-                          >This Field is Required.
-                        </small>
+                   
                       </div>
                     </div>
                     <!-- <div class="upload-documents">
