@@ -20,15 +20,14 @@ $(function () {
   const tax_exempt = document.getElementById('tax_exempt');
   const agree_to_terms = document.getElementById('agree_to_terms');
 
+  //Resusable Validations Functions
+
   //Show Input Error Message
   function showError(input, message) {
     //assign the Error Class
     //Remember the concept of Parent and Siblings
     input.className = 'custom-select is-invalid';
-
     const formGroup = input.parentElement;
-
-    console.log(formGroup);
     const errorMessage = formGroup.querySelector('small');
     errorMessage.innerText = message;
   }
@@ -43,6 +42,10 @@ $(function () {
   //Show Success Outline
   function showSuccess(input) {
     input.className = 'custom-select is-valid';
+  }
+
+  function showSuccessCheckBoxAndInputs(input) {
+    input.className = 'form-check-input is-valid';
   }
 
   function getFieldName(input) {
@@ -282,7 +285,17 @@ $(function () {
           next_step = false;
           showError(input, `${getFieldName(input)} is required`);
           return next_step;
-        } else if (input.value == 'on') {
+        } else {
+          next_step = true;
+          showSuccess(input);
+          return next_step;
+        }
+      }
+
+      //Check boxes required
+      //I am checking against the checked Property
+      function checkRequiredRadioCheckBox(input) {
+        if (input.checked == false) {
           next_step = false;
           showErrorCheckBoxAndInputs(
             input,
@@ -291,7 +304,7 @@ $(function () {
           return next_step;
         } else {
           next_step = true;
-          showSuccess(input);
+          showSuccessCheckBoxAndInputs(input);
           return next_step;
         }
       }
@@ -379,11 +392,13 @@ $(function () {
         surnameValidation = checkRequired(surname);
         emailAddressStepTwoValidation = checkRequired(email_address_field);
         roadHouseNoValidation = checkRequired(road_house_no);
-        taxExemptValidation = checkRequired(tax_exempt);
-        agreeToTermsValidation = checkRequired(agree_to_terms);
+        taxExemptValidation = checkRequiredRadioCheckBox(tax_exempt);
+        agreeToTermsValidation = checkRequiredRadioCheckBox(agree_to_terms);
 
         console.log('Tax Exempt Value');
         console.log(tax_exempt.value);
+        console.log(tax_exempt.checked);
+        console.log(agree_to_terms.checked);
 
         const stepTwoValidationsArray = [];
         stepTwoValidationsArray.push(
