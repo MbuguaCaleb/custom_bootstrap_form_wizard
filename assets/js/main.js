@@ -31,21 +31,47 @@ $(function () {
     const errorMessage = formGroup.querySelector('small');
     errorMessage.innerText = message;
   }
-
-  function showErrorCheckBoxAndInputs(input, message) {
-    input.className = 'form-check-input is-invalid';
-    const OptionOrCheckBox = input.parentElement;
-    const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
-    errorMessage.innerText = message;
-  }
-
   //Show Success Outline
   function showSuccess(input) {
     input.className = 'custom-select is-valid';
   }
 
+  function showErrorCheckBoxAndInputs(input, message) {
+    if (input.id == 'agree_to_terms') {
+      input.className = 'form-check-input is-invalid';
+      const OptionOrCheckBox = input.parentElement;
+
+      const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
+      errorMessage.innerText = message;
+
+      //Adding error class to the description
+      const addErrorClass = OptionOrCheckBox.querySelector(
+        '.highlightedDescription'
+      );
+      addErrorClass.className = 'highlightedDescription invalid-feedback';
+    } else {
+      input.className = 'form-check-input is-invalid';
+      const OptionOrCheckBox = input.parentElement;
+      const errorMessage = OptionOrCheckBox.querySelector('#invalidFeedback');
+      errorMessage.innerText = message;
+    }
+  }
+
   function showSuccessCheckBoxAndInputs(input) {
-    input.className = 'form-check-input is-valid';
+    console.log('true');
+    if (input.id == 'agree_to_terms') {
+      input.className = 'form-check-input is-valid';
+      //Adding error class to the description
+      const OptionOrCheckBox = input.parentElement;
+
+      const addSuccessClass = OptionOrCheckBox.querySelector(
+        '.highlightedDescription'
+      );
+
+      addSuccessClass.className = 'valid-feedback';
+    } else {
+      input.className = 'form-check-input is-valid';
+    }
   }
 
   function getFieldName(input) {
