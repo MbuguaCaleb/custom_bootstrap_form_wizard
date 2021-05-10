@@ -39,7 +39,14 @@ $(function () {
   const sms_notifications_false = document.getElementById(
     'sms_notifications_false'
   );
-
+  const source_of_funds = document.getElementById('source_of_funds');
+  const interest_accrued = document.getElementById('interest_accrued');
+  const occupation = document.getElementById('occupation');
+  const employer = document.getElementById('employer');
+  const account_no = document.getElementById('account_no');
+  const account_name = document.getElementById('account_name');
+  const bank = document.getElementById('bank');
+  const bank_branch = document.getElementById('bank_branch');
   //Resusable Validations Functions
 
   //Show Input Error Message
@@ -496,8 +503,15 @@ $(function () {
         genderValidation = checkRequired(gender);
         maritalStatusValidation = checkRequired(marital_status);
         dateOfBirthValidation = checkRequired(date_of_birth);
+        sourceOfFundsValidation = checkRequired(source_of_funds);
+        interestAccruedValidation = checkRequired(interest_accrued);
+        occupationValidation = checkRequired(occupation);
+        employerValidation = checkRequired(employer);
+        accountNoValidation = checkRequired(account_no);
+        accountNameValidation = checkRequired(account_name);
+        bankValidation = checkRequired(bank);
+        bankBranchValidation = checkRequired(bank_branch);
 
-        alert(dateOfBirthValidation);
         const stepTwoValidationsArray = [];
 
         //Validate Inputs
@@ -517,11 +531,19 @@ $(function () {
           phoneNOStepTwoValidation,
           initialDepositValidation,
           genderValidation,
-          maritalStatusValidation
-          // dateOfBirthValidation
+          maritalStatusValidation,
+          dateOfBirthValidation,
+          sourceOfFundsValidation,
+          interestAccruedValidation,
+          occupationValidation,
+          employerValidation,
+          accountNoValidation,
+          accountNameValidation,
+          bankValidation,
+          bankBranchValidation
         );
 
-        const next_step = validateFields(stepTwoValidationsArray);
+        const areInputsValid = validateFields(stepTwoValidationsArray);
 
         //Radio Buttons Validations
         const tax_exempt_valid = validateOptionRadioButtonFields(
@@ -537,15 +559,29 @@ $(function () {
           sms_notifications_true,
           sms_notifications_false
         );
+
+        //ValidatingRadioButtons
+        const radioButtons = [];
+
+        radioButtons.push(
+          tax_exempt_valid,
+          monthly_contribution_valid,
+          sms_notifications_true
+        );
+
+        const areRadioButtonsValid = validateRadioButtons(radioButtons);
         //CheckBoxValidation
-        agreeToTermsValidation = validateCheckBoxFields(agree_to_terms);
+        const isCheckBoxValid = validateCheckBoxFields(agree_to_terms);
 
-        console.log(tax_exempt_valid);
-        console.log(agreeToTermsValidation);
-        console.log(monthly_contribution_valid);
-        console.log(sms_nofications_validation);
+        console.log(areInputsValid);
+        console.log(areRadioButtonsValid);
+        console.log(isCheckBoxValid);
 
-        if (next_step === true) {
+        if (
+          areInputsValid === true &&
+          areRadioButtonsValid === true &&
+          isCheckBoxValid == true
+        ) {
           activePanelNum++;
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);

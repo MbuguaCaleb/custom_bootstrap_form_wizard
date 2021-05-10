@@ -503,12 +503,12 @@
                     <div class="form-row">
                       <div class="col-md-6">
                         <label for="Country Code">
-                          <small class="text-muted"
-                            >Source of Funds</small
+                          <span class="text-muted"
+                            >Source of Funds</span
                           ></label
                         >
 
-                        <select id="source_of_funds" class="form-control">
+                        <select id="source_of_funds" name="source_of_funds" class="form-control">
                           <option selected>Business</option>
                           <option selected>Rent</option>
                           <option selected>Other</option>
@@ -518,13 +518,13 @@
                         </small>
                       </div>
                       <div class="col-md-6">
-                        <label for="Country Code">
-                          <small class="text-muted"
-                            >With Interest Accrued,i Would like to</small
+                        <label for="intrest_accrued">
+                          <span class="text-muted"
+                            >With Interest Accrued,i Would like to</span
                           ></label
                         >
 
-                        <select id="country_code" class="form-control">
+                        <select id="interest_accrued" name="interest_accrued" class="form-control">
                           <option selected>Reinvest</option>
                           <option selected>Withdraw</option>
                         </select>
@@ -535,19 +535,20 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-3">
-                        <label for="inputCity">Occupation</label>
+                        <label for="Occupation">Occupation</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="inputCity"
+                          id="occupation"
+                          name="occupation"
                         />
                         <small class="invalid-feedback"
                           >This Field is Required.
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputState">Employer</label>
-                        <select id="inputState" class="form-control">
+                        <label for="Employer">Employer</label>
+                        <select id="employer" name="employer" class="form-control">
                           <option selected>Mr</option>
                           <option selected>Mrs</option>
                           <option selected>Sir</option>
@@ -587,22 +588,24 @@
                     <h3>Bank Details</h3>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="inputCity">Bank Account Number</label>
+                        <label for="Bank Account Number">Bank Account Number</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="inputCity"
+                          id="account_no"
+                          name="account_no"
                         />
                         <small class="invalid-feedback"
                           >This Field is Required.
                         </small>
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="inputState">Account Name</label>
+                        <label for="Account Name">Account Name</label>
                         <input
                         type="text"
                         class="form-control"
-                        id="inputCity"
+                        id="account_name"
+                        name="account_name"
                       />
                         <small class="invalid-feedback"
                           >This Field is Required.
@@ -612,25 +615,22 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-3">
-                        <label for="inputCity">Bank</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Mr</option>
-                          <option selected>Mrs</option>
-                          <option selected>Sir</option>
-                          <option selected>Madam</option>
+                        <label for="bank">Bank</label>
+                        <select id="bank" name="bank" class="form-control">
+                          <option selected>Cooperative</option>
+                          <option selected>Equity</option>
                           <option selected>Other</option>
+                          
                         </select>
                         <small class="invalid-feedback"
                           >This Field is Required.
                         </small>
                       </div>
                       <div class="form-group col-md-3">
-                        <label for="inputState">Branch</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Mr</option>
-                          <option selected>Mrs</option>
-                          <option selected>Sir</option>
-                          <option selected>Madam</option>
+                        <label for="Bank Brach">Branch</label>
+                        <select id="bank_branch"  name="bank_branch" class="form-control">
+                          <option selected>Nairobi</option>
+                          <option selected>Nakuru</option>
                           <option selected>Other</option>
                         </select>
                         <small class="invalid-feedback"
