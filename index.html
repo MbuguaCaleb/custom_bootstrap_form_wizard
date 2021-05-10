@@ -434,11 +434,11 @@
                     </div>
                     <div class="form-row">
                       <div class="col-md-1">
-                        <label for="Country Code">
+                        <label for="Gender">
                           <small class="text-muted">Gender</small></label
                         >
 
-                        <select id="country_code" class="form-control">
+                        <select id="gender" name="gender"class="form-control">
                           <option selected>Male</option>
                           <option selected>Female</option>
                         </select>
@@ -448,9 +448,9 @@
                       </div>
 
                       <div class="col md-2">
-                        <label for="First Name">Marital Status</label>
+                        <label for="Marital Status">Marital Status</label>
 
-                        <select id="country_code" class="form-control">
+                        <select id="marital_status" name="marital_status"class="form-control">
                           <option selected>Single</option>
                           <option selected>Married</option>
                           <option selected>Divorced</option>
@@ -467,46 +467,37 @@
                         <div class="date-picker date datepicker">
                           <input
                             type="text"
-                            name="date"
+                            name="date_of_birth"
+                            id="date_of_birth"
                             class="form-control input-group-append"
                           />
-                        </div>
-
-                        <small class="invalid-feedback"
+                          <small class="invalid-feedback"
                           >This Field is Required.
                         </small>
+                        </div>
+
+                        
                       </div>
 
                       <div class="form-group col-md-6">
-                        <label for="inputZip"
+                        <label for="sms_notifications"
                           >Would you like to receive sms notifications on any
                           transactions done on your account?</label
                         >
                         <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="inlineCheckbox1"
-                            value="option1"
-                          />
-                          <label class="form-check-label" for="inlineCheckbox1"
-                            >Yes</label
-                          >
+                          <input class="form-check-input" type="radio" name="sms_notifications_true" id="sms_notifications_true" value="Yes"
+                          aria-describedby="invalidCheckTaxExempt"  >
+                        
+                          <label class="form-check-label" for="sms_notifications">Yes</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            id="inlineCheckbox2"
-                            value="option2"
-                          />
-                          <label class="form-check-label" for="inlineCheckbox2"
-                            >No</label
-                          >
-                        </div>
-                        <small class="invalid-feedback"
-                          >This Field is Required.
-                        </small>
+
+                          <div class="form-check form-check-inline">
+
+                          <input class="form-check-input" type="radio" name="sms_notifications_false" id="sms_notifications_false" value="No">
+                          <label class="form-check-label" for="inlineRadio2">No</label>
+
+                          </div>
+                          <div id="invalidFeedbackSMSNotifications" class="text-danger invisible">This is a required field </div>
                       </div>
                     </div>
                     <div class="form-row">
@@ -738,7 +729,7 @@
                         </div>
                       </div>
                     </div>
-                    <h2>What kind of services You Need</h2>
+                    <h2>Documents Upload</h2>
                     <p>
                       Tation argumentum et usu, dicit viderer evertitur te has.
                       Eu dictas concludaturque usu, facete detracto patrioque an

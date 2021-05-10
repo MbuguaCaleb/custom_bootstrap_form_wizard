@@ -30,6 +30,15 @@ $(function () {
   const monthly_contribution_false = document.getElementById(
     'monthly_contribution_false'
   );
+  const gender = document.getElementById('gender');
+  const marital_status = document.getElementById('marital_status');
+  const date_of_birth = document.getElementById('date_of_birth');
+  const sms_notifications_true = document.getElementById(
+    'sms_notifications_true'
+  );
+  const sms_notifications_false = document.getElementById(
+    'sms_notifications_false'
+  );
 
   //Resusable Validations Functions
 
@@ -39,7 +48,9 @@ $(function () {
     //Remember the concept of Parent and Siblings
     input.className = 'custom-select is-invalid';
     const formGroup = input.parentElement;
+    console.log(formGroup);
     const errorMessage = formGroup.querySelector('small');
+    console.log(errorMessage);
     errorMessage.innerText = message;
   }
   //Show Success Outline
@@ -65,6 +76,12 @@ $(function () {
     ) {
       input.className = 'form-check-input is-invalid';
       $('#invalidFeedbackRadioTaxExempt').removeClass('invisible');
+    } else if (
+      input.id == 'sms_notifications_true' ||
+      input.id == 'sms_notifications_false'
+    ) {
+      input.className = 'form-check-input is-invalid';
+      $('#invalidFeedbackSMSNotifications').removeClass('invisible');
     } else {
       input.className = 'form-check-input is-invalid';
       $('#invalidFeedbackRadioMonthlyContribution').removeClass('invisible');
@@ -87,6 +104,12 @@ $(function () {
     ) {
       input.className = 'form-check-input is-valid';
       $('#invalidFeedbackRadioTaxExempt').addClass('invisible');
+    } else if (
+      input.id == 'sms_notifications_true' ||
+      input.id == 'sms_notifications_false'
+    ) {
+      input.className = 'form-check-input is-valid';
+      $('#invalidFeedbackSMSNotifications').addClass('invisible');
     } else {
       input.className = 'form-check-input is-valid';
       $('#invalidFeedbackRadioMonthlyContribution').addClass('invisible');
@@ -470,7 +493,11 @@ $(function () {
         taxNoValidation = checkRequired(tax_no);
         phoneNOStepTwoValidation = checkRequired(phone_no_field);
         initialDepositValidation = checkRequired(initial_deposit);
+        genderValidation = checkRequired(gender);
+        maritalStatusValidation = checkRequired(marital_status);
+        dateOfBirthValidation = checkRequired(date_of_birth);
 
+        alert(dateOfBirthValidation);
         const stepTwoValidationsArray = [];
 
         //Validate Inputs
@@ -488,7 +515,10 @@ $(function () {
           countryCodeStepTwoValidation,
           taxNoValidation,
           phoneNOStepTwoValidation,
-          initialDepositValidation
+          initialDepositValidation,
+          genderValidation,
+          maritalStatusValidation
+          // dateOfBirthValidation
         );
 
         const next_step = validateFields(stepTwoValidationsArray);
@@ -498,17 +528,22 @@ $(function () {
           tax_exempt_true,
           tax_exempt_false
         );
-        const monthly_contribution = validateOptionRadioButtonFields(
+        const monthly_contribution_valid = validateOptionRadioButtonFields(
           monthly_contribution_true,
           monthly_contribution_false
         );
 
+        const sms_nofications_validation = validateOptionRadioButtonFields(
+          sms_notifications_true,
+          sms_notifications_false
+        );
         //CheckBoxValidation
         agreeToTermsValidation = validateCheckBoxFields(agree_to_terms);
 
         console.log(tax_exempt_valid);
         console.log(agreeToTermsValidation);
-        console.log(monthly_contribution);
+        console.log(monthly_contribution_valid);
+        console.log(sms_nofications_validation);
 
         if (next_step === true) {
           activePanelNum++;
