@@ -476,10 +476,10 @@ $(function () {
       } else if (activePanelNum == 1) {
         usernameValidation = checkRequired(username);
         passwordValidation = checkRequired(password);
-        confirmPasswordValidation = checkPasswordsMatch(
-          password,
-          confirm_password
-        );
+        confirmPasswordValidation =
+          checkRequired(confirm_password) === true
+            ? checkPasswordsMatch(password, confirm_password)
+            : '';
 
         const stepTwoValidationsArray = [];
 
@@ -490,8 +490,6 @@ $(function () {
         );
 
         const next_step = validateFields(stepTwoValidationsArray);
-
-        alert(next_step);
 
         if (next_step === true) {
           //Call Endpoint to generate Otp
