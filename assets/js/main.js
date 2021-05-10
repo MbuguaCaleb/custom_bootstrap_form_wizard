@@ -410,16 +410,6 @@ $(function () {
         }
       };
 
-      const validateRadioButtons = (radioButtonsArray) => {
-        if (radioButtonsArray.includes(false)) {
-          next_step = false;
-          return next_step;
-        } else {
-          next_step = true;
-          return next_step;
-        }
-      };
-
       //Ensure that at least one of the Options Is True
       const validateOptionRadioButtonFields = (input1, input2) => {
         if (input1.checked == false && input2.checked == false) {
@@ -500,6 +490,8 @@ $(function () {
         );
 
         const next_step = validateFields(stepTwoValidationsArray);
+
+        alert(next_step);
 
         if (next_step === true) {
           //Call Endpoint to generate Otp
