@@ -948,72 +948,11 @@
                         </div>
                       </div>
                     </div>
-                    <h2>What kind of services You Need</h2>
+                    <h2>Risk Assesment</h2>
                     <p>
-                      Tation argumentum et usu, dicit viderer evertitur te has.
-                      Eu dictas concludaturque usu, facete detracto patrioque an
-                      per, lucilius pertinacia eu vel.
+                     Risk assesment Step
                     </p>
-                    <div class="step-content-area">
-                      <div class="budget-area">
-                        <p><i class="fas fa-dollar-sign"></i> Budget</p>
-                        <select name="budget">
-                          <option>$390 - $600</option>
-                          <option>$390 - $600</option>
-                          <option>$390 - $600</option>
-                          <option>$390 - $600</option>
-                          <option>$390 - $600</option>
-                        </select>
-                      </div>
-                      <div class="budget-area">
-                        <p><i class="fas fa-comments"></i> Required Support</p>
-                        <select name="support_period">
-                          <option>2 to 6 month</option>
-                          <option>2 to 6 month</option>
-                          <option>2 to 6 month</option>
-                          <option>2 to 6 month</option>
-                          <option>2 to 6 month</option>
-                        </select>
-                      </div>
-                      <div class="budget-area">
-                        <p>Optimization and Accessibility</p>
-                        <div class="opti-list">
-                          <ul class="d-flex">
-                            <li class="bg-white active">
-                              <input
-                                type="checkbox"
-                                name="code_opti1"
-                                value="Semantic coding"
-                                checked
-                              />Semantic coding
-                            </li>
-                            <li class="bg-white">
-                              <input
-                                type="checkbox"
-                                name="code_opti2"
-                                value="Mobile APP"
-                              />Mobile APP
-                            </li>
-                            <li class="bg-white">
-                              <input
-                                type="checkbox"
-                                name="code_opti3"
-                                value="Mobile Design"
-                              />Mobile Design
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="comment-box">
-                        <p>
-                          <i class="fas fa-comments"></i> Write Somthing note
-                        </p>
-                        <textarea
-                          name="comments-note"
-                          placeholder="Your Content Here"
-                        ></textarea>
-                      </div>
-                    </div>
+                  
                   </div>
                 </div>
               </div>
@@ -1146,6 +1085,11 @@
       function UploadFile() {
         var reader = new FileReader();
         var file = document.getElementById('fatca_form').files[0];
+        var file = document.getElementById('passport_id_back').files[0];
+        var file = document.getElementById('passport_id_front').files[0];
+        var file = document.getElementById('tax_certificate').files[0];
+        var file = document.getElementById('tax_exempt_certificate').files[0];
+
         reader.onload = function () {
           document.getElementById('fileContent').value = reader.result;
           document.getElementById('filename').value = file.name;

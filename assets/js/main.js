@@ -617,7 +617,9 @@ $(function () {
           passportIDFrontValidations,
           taxCertificateValidations
         );
-        const next_step = validateFields(stepThreeValidationsArray);
+
+        const next_step = true;
+        // const next_step = validateFields(stepThreeValidationsArray);
 
         if (next_step === true) {
           activePanelNum++;
