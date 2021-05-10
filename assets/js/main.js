@@ -463,6 +463,13 @@ $(function () {
         const next_step = validateFields(stepOneValidationsArray);
 
         if (next_step === true) {
+          activePanelNum++;
+          setActiveStep(activePanelNum);
+          setActivePanel(activePanelNum);
+        }
+      } else if (activePanelNum == 1) {
+        const next_step = true;
+        if (next_step === true) {
           //Call Endpoint to generate Otp
           //Do checks to find whether the account is already active
           //async await
@@ -485,7 +492,7 @@ $(function () {
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
-      } else if (activePanelNum == 1) {
+      } else if (activePanelNum == 2) {
         idPassPortNoValidation = checkRequired(id_passport_no);
         saluatationValidation = checkRequired(saluatation);
         hearAboutUsValidation = checkRequired(about_us);
