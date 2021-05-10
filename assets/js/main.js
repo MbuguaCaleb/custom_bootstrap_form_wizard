@@ -601,6 +601,14 @@ $(function () {
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
         }
+      } else if (activePanelNum == 3) {
+        next_step = true;
+        
+        if (next_step === true) {
+          activePanelNum++;
+          setActiveStep(activePanelNum);
+          setActivePanel(activePanelNum);
+        }
       } else {
       }
 
