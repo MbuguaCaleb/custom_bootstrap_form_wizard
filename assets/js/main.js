@@ -6,6 +6,11 @@ $(function () {
   const country_code = document.getElementById('country_code');
   const otp_password = document.getElementById('otp_password');
 
+  //Step One
+  const username = document.getElementById('username');
+  const password = document.getElementById('password');
+  const confirm_password = document.getElementById('confirm_password');
+
   //Step Two Validations
   const id_passport_no = document.getElementById('id_passport_no');
   const saluatation = document.getElementById('saluatation');
@@ -468,7 +473,23 @@ $(function () {
           setActivePanel(activePanelNum);
         }
       } else if (activePanelNum == 1) {
-        const next_step = true;
+        usernameValidation = checkRequired(username);
+        passwordValidation = checkRequired(password);
+        confirmPasswordValidation = checkRequired(confirm_password);
+
+        const stepTwoValidationsArray = [];
+
+        stepTwoValidationsArray.push(
+          usernameValidation,
+          passwordValidation,
+          confirmPasswordValidation
+        );
+
+        const inputsValidation = validateFields(stepTwoValidationsArray);
+
+        alert(inputsValidation);
+
+        next_step = false;
         if (next_step === true) {
           //Call Endpoint to generate Otp
           //Do checks to find whether the account is already active
@@ -519,10 +540,10 @@ $(function () {
         bankValidation = checkRequired(bank);
         bankBranchValidation = checkRequired(bank_branch);
 
-        const stepTwoValidationsArray = [];
+        const stepThreeValidationsArray = [];
 
         //Validate Inputs
-        stepTwoValidationsArray.push(
+        stepThreeValidationsArray.push(
           idPassPortNoValidation,
           saluatationValidation,
           hearAboutUsValidation,
@@ -550,7 +571,7 @@ $(function () {
           bankBranchValidation
         );
 
-        const areInputsValid = validateFields(stepTwoValidationsArray);
+        const areInputsValid = validateFields(stepThreeValidationsArray);
 
         //Radio Buttons Validations
         const tax_exempt_valid = validateOptionRadioButtonFields(
