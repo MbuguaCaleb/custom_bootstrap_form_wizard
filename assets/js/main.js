@@ -372,6 +372,17 @@ $(function () {
         }
       }
 
+      //check Passwords Match
+      function checkPasswordsMatch(input1, input2) {
+        if (input1.value !== input2.value) {
+          showError(input2, 'Passwords do not match');
+          next_step = false;
+          return next_step;
+        } else {
+          next_step = true;
+          return next_step;
+        }
+      }
       //check email is valid
       function checkEmail(input) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -475,7 +486,10 @@ $(function () {
       } else if (activePanelNum == 1) {
         usernameValidation = checkRequired(username);
         passwordValidation = checkRequired(password);
-        confirmPasswordValidation = checkRequired(confirm_password);
+        confirmPasswordValidation = checkPasswordsMatch(
+          password,
+          confirm_password
+        );
 
         const stepTwoValidationsArray = [];
 
@@ -485,11 +499,8 @@ $(function () {
           confirmPasswordValidation
         );
 
-        const inputsValidation = validateFields(stepTwoValidationsArray);
+        const next_step = validateFields(stepTwoValidationsArray);
 
-        alert(inputsValidation);
-
-        next_step = false;
         if (next_step === true) {
           //Call Endpoint to generate Otp
           //Do checks to find whether the account is already active
@@ -540,6 +551,24 @@ $(function () {
         bankValidation = checkRequired(bank);
         bankBranchValidation = checkRequired(bank_branch);
 
+        //Radio Buttons Validations
+        taxExemptValidation = validateOptionRadioButtonFields(
+          tax_exempt_true,
+          tax_exempt_false
+        );
+        monthlyContributionValidation = validateOptionRadioButtonFields(
+          monthly_contribution_true,
+          monthly_contribution_false
+        );
+
+        smsNoficationsValidation = validateOptionRadioButtonFields(
+          sms_notifications_true,
+          sms_notifications_false
+        );
+
+        //CheckBoxValidation
+        checkBoxValidation = validateCheckBoxFields(agree_to_terms);
+
         const stepThreeValidationsArray = [];
 
         //Validate Inputs
@@ -568,48 +597,16 @@ $(function () {
           accountNoValidation,
           accountNameValidation,
           bankValidation,
-          bankBranchValidation
+          bankBranchValidation,
+          taxExemptValidation,
+          monthlyContributionValidation,
+          smsNoficationsValidation,
+          checkBoxValidation
         );
 
-        const areInputsValid = validateFields(stepThreeValidationsArray);
+        const next_step = validateFields(stepThreeValidationsArray);
 
-        //Radio Buttons Validations
-        const tax_exempt_valid = validateOptionRadioButtonFields(
-          tax_exempt_true,
-          tax_exempt_false
-        );
-        const monthly_contribution_valid = validateOptionRadioButtonFields(
-          monthly_contribution_true,
-          monthly_contribution_false
-        );
-
-        const sms_nofications_validation = validateOptionRadioButtonFields(
-          sms_notifications_true,
-          sms_notifications_false
-        );
-
-        //ValidatingRadioButtons
-        const radioButtons = [];
-
-        radioButtons.push(
-          tax_exempt_valid,
-          monthly_contribution_valid,
-          sms_notifications_true
-        );
-
-        const areRadioButtonsValid = validateRadioButtons(radioButtons);
-        //CheckBoxValidation
-        const isCheckBoxValid = validateCheckBoxFields(agree_to_terms);
-
-        console.log(areInputsValid);
-        console.log(areRadioButtonsValid);
-        console.log(isCheckBoxValid);
-
-        if (
-          areInputsValid === true &&
-          areRadioButtonsValid === true &&
-          isCheckBoxValid == true
-        ) {
+        if (next_step === true) {
           activePanelNum++;
           setActiveStep(activePanelNum);
           setActivePanel(activePanelNum);
