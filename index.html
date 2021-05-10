@@ -787,8 +787,8 @@
                           >
                         </div>
                         <div class="upload-option text-center">
-                          <label for="attach"> <small>Upload Passport/ID</small>  </label>
-                          <input id="attach" style="visibility:hidden;" type="file">
+                          <label for="passport_id_front"> <small>Upload Passport/ID</small>  </label>
+                          <input id="passport_id_front" style="visibility:hidden;" type="file">
                         </div>
                         <small class="invalid-feedback"
                         >This Field is Required.
@@ -816,10 +816,13 @@
                           >
                         </div>
                         <div class="upload-option text-center">
-                          <label for="attach">
+                          <label for="passport_id_back">
                             <small>  Upload Passport/ID(Back)</small>
                           </label>
-                          <input id="attach" style="visibility:hidden;" type="file">
+                          <input id="passport_id_back" style="visibility:hidden;" type="file">
+                          <small class="invalid-feedback"
+                          >This Field is Required.
+                        </small>
                         </div>
                       </div>
                     </div>
@@ -845,6 +848,9 @@
                         <div class="upload-option text-center">
                           <label for="attach"><small>Upload TAX Certificate</small></label>
                           <input id="attach" style="visibility:hidden;" type="file">
+                          <small class="invalid-feedback"
+                          >This Field is Required.
+                        </small>
                         </div>
                       </div>
                     </div>
@@ -868,11 +874,14 @@
                           >
                         </div>
                         <div class="upload-option text-center">
-                          <label for="attach">
+                          <label for="tax_exemption_certificate">
                           <small>  Upload TAX Exemption Certificate</small>
                           </label>
-                          <input id="attach" style="visibility:hidden;" type="file">
+                          <input id="tax_exemption_certificate" style="visibility:hidden;" type="file">
                         </div>
+                        <small class="invalid-feedback"
+                        >This Field is Required.
+                      </small>
                       </div>
                     </div>
                     <div class="upload-documents">
@@ -895,9 +904,12 @@
                           >
                         </div>
                         <div class="upload-option text-center">
-                          <label for="attach"><small>Upload FATCA Form</small></label>
-                          <input id="attach" style="visibility:hidden;" type="file">
+                          <label for="fatca_form"><small>Upload FATCA Form</small></label>
+                          <input id="fatca_form" style="visibility:hidden;" type="file">
                         </div>
+                        <small class="invalid-feedback"
+                        >This Field is Required.
+                      </small>
                       </div>
                     </div>
                   
@@ -1133,7 +1145,7 @@
 
       function UploadFile() {
         var reader = new FileReader();
-        var file = document.getElementById('attach').files[0];
+        var file = document.getElementById('fatca_form').files[0];
         reader.onload = function () {
           document.getElementById('fileContent').value = reader.result;
           document.getElementById('filename').value = file.name;

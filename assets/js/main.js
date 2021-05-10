@@ -52,6 +52,11 @@ $(function () {
   const account_name = document.getElementById('account_name');
   const bank = document.getElementById('bank');
   const bank_branch = document.getElementById('bank_branch');
+
+  //Upload Documents Validations
+  const passport_id_front = document.getElementById('passport_id_front');
+  const tax_certificate = document.getElementById('tax_certificate');
+
   //Resusable Validations Functions
 
   //Show Input Error Message
@@ -602,8 +607,18 @@ $(function () {
           setActivePanel(activePanelNum);
         }
       } else if (activePanelNum == 3) {
-        next_step = true;
-        
+        //Upload Documents Validations
+        passportIDFrontValidations = checkRequired(passport_id_front);
+        taxCertificateValidations = checkRequired(tax_certificate);
+
+        const stepThreeValidationsArray = [];
+
+        stepThreeValidationsArray.push(
+          passportIDFrontValidations,
+          taxCertificateValidations
+        );
+        const next_step = validateFields(stepThreeValidationsArray);
+
         if (next_step === true) {
           activePanelNum++;
           setActiveStep(activePanelNum);
